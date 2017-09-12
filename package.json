@@ -1,0 +1,32 @@
+{
+  "name": "express-rest",
+  "version": "1.0.0",
+  "description": "A basic example of a rest API using Node and Express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run server",
+    "server": "babel-watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewBogdanovTSS/express-rest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewBogdanovTSS/express-rest/issues"
+  },
+  "homepage": "https://github.com/AndrewBogdanovTSS/express-rest#readme",
+  "devDependencies": {
+    "@types/express": "^4.0.37",
+    "babel-cli": "6.16.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-latest": "6.16.0",
+    "babel-watch": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.11"
+  }
+}
