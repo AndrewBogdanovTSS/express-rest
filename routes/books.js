@@ -20,7 +20,7 @@ booksRouter.route('/')
         });
 
     })
-    .post((req, res)=>{
+    .post((req, res) => {
         console.log("body: ", req.body);
         let book = new BookModel(req.body);
 
@@ -30,28 +30,45 @@ booksRouter.route('/')
 
     });
 
+booksRouter.use('/:id', (req, res, next) => {
+    BookModel.findById(req.params.id, (err, book) => {
+        if (err) {
+            res.status(500).send(err);
+        } else if (book) {
+            req.book = book;
+            next();
+        } else {
+            res.status(404).send('No Book Found');
+        }
+    });
+});
+
+function saveBook(req, res, next) {
+    req.book.save().then((err) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(req.book);
+            if(next)next();
+        }
+    });
+}
+
 booksRouter.route('/:id')
     .get((req, res) => {
-        BookModel.findById(req.params.id, (err, book) => {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                res.json(book);
-            }
-        });
+        res.json(req.book);
     })
-    .put((req, res)=> {
-        BookModel.findById(req.params.id, (err, book) => {
-            if (err) {
-                res.status(500).send(err);
-            } else {
-                console.log("body: ", req.body);
-                book.title = req.body.title;
-                book.author = req.body.author;
-                book.genre = req.body.genre;
-                book.read = req.body.read;
-                book.save();
-                res.json(book);
-            }
-        });
+    .put((req, res) => {
+        let book = req.book;
+        book.title = req.body.title;
+        book.author = req.body.author;
+        book.genre = req.body.genre;
+        book.read = req.body.read;
+        saveBook(req, res);
+    })
+    .patch((req, res) => {
+        let book = req.book;
+        if (book._id) delete book._id;
+        for (let key in req.body) book[key] = req.body[key];
+        saveBook(req, res);
     });

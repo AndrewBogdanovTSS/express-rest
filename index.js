@@ -7,6 +7,8 @@ const app = express();
 const port = process.env.PORT || 5001;
 const db = mongoose.connect('mongodb://localhost/book_db');
 
+mongoose.Promise = global.Promise;
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/api/books', booksRouter);
