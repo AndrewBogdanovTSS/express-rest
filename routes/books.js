@@ -71,4 +71,13 @@ booksRouter.route('/:id')
         if (book._id) delete book._id;
         for (let key in req.body) book[key] = req.body[key];
         saveBook(req, res);
+    })
+    .delete((req, res)=>{
+        req.book.remove().then((err)=>{
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(204).send('Book removed');
+            }
+        });
     });
