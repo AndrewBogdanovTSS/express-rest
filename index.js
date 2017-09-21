@@ -6,9 +6,6 @@ import {booksRouter} from './routes/books'
 const port = process.env.PORT || 5001;
 export const testPath = process.env.NODE_ENV === 'test' ? '_test' : '';
 export const app = express();
-const db = mongoose.connect('mongodb://localhost/book_db'+ testPath, {
-    useMongoClient: true,
-});
 
 mongoose.Promise = global.Promise;
 

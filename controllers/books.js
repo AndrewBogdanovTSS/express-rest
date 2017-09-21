@@ -7,7 +7,9 @@ function get(req, res) {
         let criteria = filterArr[i];
         if (req.query[criteria]) query[criteria] = req.query[criteria];
     }
+    console.log("BookModel:", BookModel);
     BookModel.find(query, (err, books) => {
+        console.log("books:", books);
         if (err) {
             res.status(500).send(err);
         } else {
