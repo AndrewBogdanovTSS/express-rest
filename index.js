@@ -3,10 +3,12 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import {booksRouter} from './routes/books'
 
-export const app = express();
 const port = process.env.PORT || 5001;
-const dbPath = process.env.NODE_ENV === 'test' ? 'book_db_test' : 'book_db';
-const db = mongoose.connect('mongodb://localhost/'+ dbPath);
+export const testPath = process.env.NODE_ENV === 'test' ? '_test' : '';
+export const app = express();
+const db = mongoose.connect('mongodb://localhost/book_db'+ testPath, {
+    useMongoClient: true,
+});
 
 mongoose.Promise = global.Promise;
 

@@ -1,11 +1,12 @@
 import 'babel-polyfill'
 import should from 'should'
-import request from 'supertest'
-import {app} from '../index'
+import supertest from 'supertest'
 import mongoose from 'mongoose'
+import {app} from '../index'
+// import {db} from '../index'
 
 const Book = mongoose.model('Book');
-const agent = request.agent(app);
+const agent = supertest.agent(app);
 
 describe('Book Crud Test', () => {
     it('Should allow a book to be posted and return a read and _id', (done) => {
@@ -19,7 +20,6 @@ describe('Book Crud Test', () => {
                 result.body.should.have.property('_id');
                 done();
             });
-
     });
 
     afterEach((done)=>{

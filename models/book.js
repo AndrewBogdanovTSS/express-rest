@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
+import {testPath} from '../index'
 
 const Schema = mongoose.Schema;
+
 
 const model = new Schema({
     title: {
@@ -19,3 +21,5 @@ const model = new Schema({
 });
 
 export default mongoose.model('Book', model)
+
+// console.log("db.model: ", db.model('Book', model));

@@ -1,7 +1,14 @@
 import BookModel from '../models/book'
 
 function get(req, res) {
-    res.json(req.book);
+    let returnBook = req.book.toJSON();
+    let genreLink = `http://${req.headers.host}/api/books/?genre=${returnBook.genre}`.replace(' ', '%20');
+
+    returnBook.links = {
+        filterByGenre: genreLink,
+        allBooks: `http://${req.headers.host}/api/books/`
+    };
+    res.json(returnBook);
 }
 
 function post(req, res) {

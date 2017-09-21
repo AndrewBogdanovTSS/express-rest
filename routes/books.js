@@ -12,11 +12,15 @@ booksRouter.route('/')
         booksController.post(req, res);
     });
 
-booksRouter.use('/:id', (req, res, next) => {
+//Alternative way of using middleware
+/*booksRouter.use('/:id', (req, res, next) => {
     bookController.getBook(req, res, next);
-});
+});*/
 
 booksRouter.route('/:id')
+    .all((req, res, next) => {
+        bookController.getBook(req, res, next);
+    })
     .get((req, res) => {
         bookController.get(req, res);
     })

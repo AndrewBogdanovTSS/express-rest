@@ -47,4 +47,4 @@ db.books.insert([
 	author: 'Lev Nikolayevich Tolstoy',
 	read: false
 }
-])
+]);

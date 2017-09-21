@@ -11,7 +11,15 @@ function get(req, res) {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.json(books);
+            let returnBooks = [];
+            books.forEach((el, i, arr)=>{
+                let newBook = el.toJSON();
+                let selfLink = `http://${req.headers.host}/api/books/${newBook._id}`.replace(' ', '%20');
+                newBook.links = {};
+                newBook.links.self = selfLink;
+                returnBooks.push(newBook);
+            });
+            res.json(returnBooks);
         }
     });
 }
@@ -19,7 +27,7 @@ function get(req, res) {
 function post(req, res) {
     let book = new BookModel(req.body);
 
-    if (!req.body.title){
+    if (!req.body.title) {
         res.status(400);
         res.send('Title is required');
     } else {
