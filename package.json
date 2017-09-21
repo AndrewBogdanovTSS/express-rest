@@ -22,9 +22,6 @@
   "homepage": "https://github.com/AndrewBogdanovTSS/express-rest#readme",
   "devDependencies": {
     "@types/express": "^4.0.37",
-    "@types/mocha": "^2.2.43",
-    "@types/should": "^11.2.0",
-    "@types/sinon": "^2.3.5",
     "babel-cli": "6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
