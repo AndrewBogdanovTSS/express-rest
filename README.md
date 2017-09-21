@@ -6,9 +6,11 @@ This repo uses minimal amount of dependencies, all build scripts written with NP
 ### To run in dev mode
 - npm install
 - npm run dev
+- open browser on port 5001
 
 ### To run tests
 - npm test
+- test will be run on port 5002
 
 ### Setting up database
 - Install MongoDB from [here](https://www.mongodb.com/download-center?jmp=nav#community)
