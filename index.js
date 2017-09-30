@@ -1,16 +1,10 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+import db from './db'
 import {booksRouter} from './routes/books.route'
 
 const port = process.env.PORT || 5001;
-export const testPath = process.env.NODE_ENV === 'test' ? '_test' : '';
 export const app = express();
-mongoose.connect('mongodb://localhost/book_db' + testPath, {
-    useMongoClient: true
-});
-
-mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
