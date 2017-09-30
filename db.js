@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
+import connectDb from 'mongoose-connect-db'
 
 const testPath = process.env.NODE_ENV === 'test' ? '_test' : '';
 const dbURI = 'mongodb://localhost/book_db' + testPath;
+
 mongoose.Promise = global.Promise;
 
-export default mongoose.connect(dbURI, {
-    useMongoClient: true
-});
+connectDb(mongoose, dbURI);
 
 // CONNECTION EVENTS
 // When successfully connected
