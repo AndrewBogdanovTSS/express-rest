@@ -35,7 +35,6 @@
     "express": "^4.16.1",
     "mocha": "^3.5.3",
     "mongoose": "^4.11.13",
-    "mongoose-connect-db": "^1.4.4",
     "should": "^13.1.0",
     "sinon": "^4.0.0",
     "supertest": "^3.0.0"
