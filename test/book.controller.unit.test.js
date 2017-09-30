@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import should from 'should'
 import sinon from 'sinon'
-import booksController from '../controllers/books'
+import booksController from '../controllers/books.controller'
 
 describe('Book controller tests: ', () => {
     describe('Post', () => {

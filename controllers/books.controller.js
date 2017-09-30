@@ -1,9 +1,9 @@
-import BookModel from '../models/book'
+import BookModel from '../models/book.model'
 
 function get(req, res) {
     let filterArr = ['genre', 'author'];
     let query = {};
-    for (var i = 0; i < filterArr.length; i++) {
+    for (let i = 0; i < filterArr.length; i++) {
         let criteria = filterArr[i];
         if (req.query[criteria]) query[criteria] = req.query[criteria];
     }

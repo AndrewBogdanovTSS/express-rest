@@ -1,4 +1,4 @@
-import BookModel from '../models/book'
+import BookModel from '../models/book.model'
 
 function get(req, res) {
     let returnBook = req.book.toJSON();
