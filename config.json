@@ -1,0 +1,18 @@
+{
+  "db": {
+    "dev": {
+      "user": "andrew",
+      "password": "universe123",
+      "server": "ds159024.mlab.com",
+      "port": "59024",
+      "name": "books_db"
+    },
+    "test": {
+      "user": "andrew",
+      "password": "universe123",
+      "server": "ds159024.mlab.com",
+      "port": "59024",
+      "name": "books_db_test"
+    }
+  }
+}

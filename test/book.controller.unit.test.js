@@ -6,8 +6,8 @@ import booksController from '../controllers/books.controller'
 describe('Book controller tests: ', () => {
     describe('Post', () => {
         it('should not allow an empty title', () => {
-            const Book = function (book) {
-                this.save = function () {}
+            const Book = (book) => {
+                this.save = () => {}
             };
 
             let req = {

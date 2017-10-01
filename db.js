@@ -1,7 +1,8 @@
 import mongoose from 'mongoose'
+import config from './config.json'
 
-const testPath = process.env.NODE_ENV === 'test' ? '_test' : '';
-const dbURI = 'mongodb://localhost/book_db' + testPath;
+const dbConfig = process.env.NODE_ENV === 'test' ? config.db.test : config.db.dev;
+const dbURI = `mongodb://${dbConfig.user}:${dbConfig.password}@${dbConfig.server}:${dbConfig.port}/${dbConfig.name}`;
 
 mongoose.Promise = global.Promise;
 
